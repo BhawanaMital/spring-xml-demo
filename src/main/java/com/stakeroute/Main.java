@@ -16,9 +16,20 @@ public class Main {
 
 
     ApplicationContext applicationContext=new ClassPathXmlApplicationContext("beans.xml");
-    Movie movie=applicationContext.getBean("MovieA",Movie.class);
-    Movie movie1=applicationContext.getBean("MovieB",Movie.class);
+    Movie movie=applicationContext.getBean("movie1",Movie.class);
+
+    //BYNAME=SETTER AND THE ACTOR ID SHOULD BE EQUAL TO THE ACTOR OBJECT VARIABLE.
+    Movie movie1=applicationContext.getBean("movie1",Movie.class);
+
+    //BYTYPE=DEFAULT CONSTRUCTOR
+    Movie movie2=applicationContext.getBean("movie2",Movie.class);
+
+    //CONSTRUCTOR=DEFAULT AND PARAMETER CONSTRUCTOR
+    Movie movie3=applicationContext.getBean("movie3",Movie.class);
     movie.Act();
+    movie1.Act();
+    movie2.Act();
+    movie3.Act();
 
     System.out.println("printing the bean is same or not.");
     System.out.println(movie==movie1);
