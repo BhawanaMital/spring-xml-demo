@@ -2,11 +2,16 @@ package com.stakeroute.domain;
 
 public class Movie {
 
-    public void setActor(Actor actor) {
+//    public void setActor(Actor actor) {
+//        this.actor = actor;
+//    }
+
+    private Actor actor;
+
+    public Movie(Actor actor) {
         this.actor = actor;
     }
 
-    private Actor actor;
     public void Act()
     {
         actor.act();

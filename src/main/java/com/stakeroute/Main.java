@@ -16,20 +16,24 @@ public class Main {
 
 
     ApplicationContext applicationContext=new ClassPathXmlApplicationContext("beans.xml");
-    Movie movie=applicationContext.getBean("movie",Movie.class);
+    Movie movie=applicationContext.getBean("MovieA",Movie.class);
+    Movie movie1=applicationContext.getBean("MovieB",Movie.class);
     movie.Act();
 
-    BeanFactory xmlBeanFactory=new XmlBeanFactory(new ClassPathResource("beans.xml"));
-    Movie movie1=xmlBeanFactory.getBean("movie",Movie.class);
-    movie1.Act();
+    System.out.println("printing the bean is same or not.");
+    System.out.println(movie==movie1);
 
-        BeanDefinitionRegistry beanDefinitionRegistry=new DefaultListableBeanFactory();
-        XmlBeanDefinitionReader xmlBeanDefinitionReader = new XmlBeanDefinitionReader(beanDefinitionRegistry);
-        xmlBeanDefinitionReader.loadBeanDefinitions(new FileSystemResource("/home/bhawana/Desktop/SpringApplication/src/resources/beans.xml"));
-        Movie movie3= ((DefaultListableBeanFactory)beanDefinitionRegistry).getBean(Movie.class);
-        movie3.Act();
+//    BeanFactory xmlBeanFactory=new XmlBeanFactory(new ClassPathResource("beans.xml"));
+//    Movie movie2=xmlBeanFactory.getBean("movie",Movie.class);
+//    movie1.Act();
+//
+//    BeanDefinitionRegistry beanDefinitionRegistry=new DefaultListableBeanFactory();
+//    XmlBeanDefinitionReader xmlBeanDefinitionReader = new XmlBeanDefinitionReader(beanDefinitionRegistry);
+//    xmlBeanDefinitionReader.loadBeanDefinitions(new FileSystemResource("/home/bhawana/Desktop/SpringApplication/src/resources/beans.xml"));
+//    Movie movie3= ((DefaultListableBeanFactory)beanDefinitionRegistry).getBean("movie",Movie.class);
+//    movie3.Act();
 
-        
+
  }
 }
 
