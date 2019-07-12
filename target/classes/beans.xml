@@ -20,10 +20,10 @@
 
     <bean id="movie3" class="com.stakeroute.domain.Movie" scope="prototype" autowire="constructor"/>
 
-    <bean id="beanlifecycle" class="com.stakeroute.demo.BeanLifecycleDemoBean" init-method="customInit" destroy-method="customDestroy">
+    <bean id="beanlifecycle" class="com.stakeroute.demo.BeanLifecycleDemoBean" init-method="customInit" destroy-method="customDestroy"/>
 
-    </bean>
 
+    <bean class="com.stakeroute.demo.BeanPostProcessorDemoBean"/>
 
 
 
