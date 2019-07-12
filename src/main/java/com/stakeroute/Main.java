@@ -1,5 +1,6 @@
 package com.stakeroute;
 
+import com.stakeroute.demo.BeanLifecycleDemoBean;
 import com.stakeroute.domain.Movie;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.FileSystemResource;
@@ -15,7 +17,7 @@ public class Main {
     public static void main(String[] args) {
 
 
-    ApplicationContext applicationContext=new ClassPathXmlApplicationContext("beans.xml");
+    AbstractApplicationContext applicationContext=new ClassPathXmlApplicationContext("beans.xml");
     Movie movie=applicationContext.getBean("movie1",Movie.class);
 
     //BYNAME=SETTER AND THE ACTOR ID SHOULD BE EQUAL TO THE ACTOR OBJECT VARIABLE.
@@ -33,6 +35,10 @@ public class Main {
 
     System.out.println("printing the bean is same or not.");
     System.out.println(movie==movie1);
+
+        applicationContext.getBean("beanlifecycle",BeanLifecycleDemoBean.class);
+        applicationContext.registerShutdownHook();
+
 
 //    BeanFactory xmlBeanFactory=new XmlBeanFactory(new ClassPathResource("beans.xml"));
 //    Movie movie2=xmlBeanFactory.getBean("movie",Movie.class);
